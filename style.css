@@ -10,6 +10,7 @@ body {
     color: #1a1a1a;            
 }
 
+/* Шапка сайта */
 .header {
     display: flex;
     justify-content: space-between;
@@ -59,6 +60,7 @@ body {
     border-color: #ffffff;
 }
 
+/* Контентная зона */
 .main-content {
     max-width: 1100px;
     margin: 50px auto;
@@ -202,6 +204,7 @@ body {
     text-align: left;
     font-size: 15px;
     line-height: 1.5;
+    min-width: 140px; /* Чтобы колонки таблицы на мобилках сохраняли читаемый размер */
 }
 
 .schedule-table th {
@@ -216,4 +219,76 @@ body {
 
 .schedule-table tr:hover {
     background-color: #f0f2f5;
+}
+
+/* ==========================================================================
+   АДАПТИВНЫЕ СТИЛИ ДЛЯ МОБИЛЬНЫХ ЭКРАНОВ (Менее 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* Перестраиваем шапку вертикально */
+    .header {
+        flex-direction: column;
+        padding: 15px 20px;
+        gap: 15px;
+        text-align: center;
+    }
+
+    /* Адаптируем логотип и текст в одну аккуратную линию на телефоне */
+    .logo {
+        font-size: 16px;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .logo-img {
+        height: 45px;
+    }
+
+    /* Кнопки меню занимают всю ширину или красиво переносятся */
+    .nav {
+        width: 100%;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .nav-btn {
+        width: 100%;
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .main-content {
+        margin: 25px auto;
+    }
+
+    /* Уменьшаем отступы в контенте */
+    .hero, .schedule-container, .page-placeholder {
+        padding: 30px 15px;
+    }
+
+    .hero h1, .schedule-container h2 {
+        font-size: 26px;
+    }
+
+    .hero p, .schedule-subtitle {
+        font-size: 15px;
+    }
+
+    /* Кнопки выбора курсов делаем чуть компактнее */
+    .course-btn {
+        padding: 14px 20px;
+        font-size: 14px;
+    }
+
+    /* ПЕДАГОГИЧЕСКИЙ СОСТАВ: перестраиваем карточки в вертикальный режим */
+    #teachers-list-grid {
+        grid-template-columns: 1fr !important; /* Строго одна колонка */
+    }
+
+    #teachers-list-grid > div {
+        flex-direction: column; /* Фото сверху, текст снизу */
+        text-align: center;
+        align-items: center;
+        padding: 15px;
+    }
 }
