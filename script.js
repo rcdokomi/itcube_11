@@ -1,9 +1,9 @@
-// 1. Главная страница с промо-видео центра
+// 1. Разметка всех страниц сайта (включая новые разделы)
 const pages = {
     home: `
         <div class="hero">
             <h1>Добро пожаловать в "IT-куб"!</h1>
-            <p>Центр цифрового образования – место, где дети создают будущее своими руками.</p>
+            <p>Центр цифрового образования — место, где дети создают будущее своими руками.</p>
             <div style="margin-top:35px; width:100%; display:flex; justify-content:center;">
                 <video autoplay loop muted playsinline width="100%" style="max-width:720px; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.15); border:1px solid #e0e4ec;">
                     <source src="media/promo.mp4" type="video/mp4">
@@ -14,10 +14,16 @@ const pages = {
     about: `
         <div class="page-placeholder">
             <h2>О центре</h2>
-            <p>Центр цифрового образования детей «IT-куб» – это современная площадка дополнительного образования, направленная на популяризацию информационных технологий и программирования.</p>
+            <p>Центр цифрового образования детей «IT-куб» — это современная площадка дополнительного образования, направленная на популяризацию информационных технологий и программирования.</p>
         </div>
     `,
-    teachers: `<div class="schedule-container" style="text-align:center;"><h2>Наши педагоги</h2><p class="schedule-subtitle">Опытные специалисты и практикующие IT-инженеры</p><div id="teachers-list-grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(450px,1fr)); gap:25px; text-align:left; margin-top:30px;"></div></div>`,
+    courses: `
+        <div class="page-placeholder">
+            <h2>Образовательные программы</h2>
+            <p>Эта страница находится в разработке. Здесь появится подробное описание всех учебных курсов центра.</p>
+        </div>
+    `,
+    teachers: `<div class="schedule-container" style="text-align:center;"><h2>Наши наставники</h2><p class="schedule-subtitle">Опытные специалисты и практикующие IT-инженеры.</p><div id="teachers-list-grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(450px,1fr)); gap:25px; text-align:left; margin-top:30px;"></div></div>`,
     schedule: `
         <div class="schedule-container">
             <h2>Расписание занятий</h2>
@@ -33,8 +39,21 @@ const pages = {
             </div>
             <div id="course-table-container" class="table-container"><div class="table-placeholder">Нажмите на интересующий курс выше, чтобы увидеть расписание.</div></div>
         </div>
+    `,
+    news: `
+        <div class="page-placeholder">
+            <h2>Новости и события</h2>
+            <p>Эта страница находится в разработке. Скоро здесь появится лента последних событий «IT-куба».</p>
+        </div>
+    `,
+    gallery: `
+        <div class="page-placeholder">
+            <h2>Фотогалерея</h2>
+            <p>Эта страница находится в разработке. Скоро здесь появятся фотографии с наших занятий, хакатонов и мастер-классов.</p>
+        </div>
     `
 };
+
 // 2. Список преподавателей для автоматического вывода на сайт
 const teachersData = [
     { name: "Попов Н. Ю.", sub: "Python / Яндекс", bg: "#3776ab", img: "media/teacher1.jpg", text: "Преподаватель высшей категории. Специализируется на изучении алгоритмов и промышленного программирования." },
@@ -65,10 +84,8 @@ function renderPage(pageKey) {
     if (!pages[pageKey]) return;
     contentDiv.innerHTML = pages[pageKey];
     
-    // Сохраняем страницу в адресную строку, чтобы не терять её при обновлении
     window.location.hash = pageKey;
     
-    // Автоматическая сборка карточек преподавателей с круглыми фото
     if (pageKey === 'teachers') {
         const grid = document.getElementById('teachers-list-grid');
         teachersData.forEach((t) => {
@@ -99,16 +116,12 @@ function initScheduleButtons() {
     });
 }
 
-// Слушаем клики по кнопкам навигации
+// Слушаем клики по всем кнопкам навигации (включая новые)
 navButtons.forEach(btn => btn.addEventListener('click', (e) => renderPage(e.target.getAttribute('data-page'))));
 logoButton.addEventListener('click', () => renderPage('home'));
 
-// Умная загрузка при обновлении страницы
 document.addEventListener('DOMContentLoaded', () => {
-    // Проверяем, есть ли уже сохраненная страница в адресе (например, #schedule)
     const savedPage = window.location.hash.replace('#', '');
-    
-    // Если страница сохранена и она существует — открываем её, иначе открываем главную (home)
     if (savedPage && pages[savedPage]) {
         renderPage(savedPage);
     } else {
