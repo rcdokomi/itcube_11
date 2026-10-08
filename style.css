@@ -1,0 +1,219 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #f5f7fa; 
+    color: #1a1a1a;            
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0d1b2a; 
+    padding: 20px 40px;
+    border-bottom: 4px solid #415a77; 
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    color: #ffffff; 
+    cursor: pointer;
+    letter-spacing: 1px;
+    display: flex;         
+    align-items: center;   
+    gap: 12px;             
+}
+
+.logo-img {
+    height: 55px;          
+    width: auto;           
+    object-fit: contain;
+}
+
+.nav {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-btn {
+    background-color: #1b263b; 
+    color: #ffffff;
+    border: 1px solid #415a77; 
+    padding: 10px 22px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.nav-btn:hover {
+    background-color: #ffffff; 
+    color: #0d1b2a;            
+    border-color: #ffffff;
+}
+
+.main-content {
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.hero {
+    background-color: #ffffff; 
+    color: #0d1b2a;
+    padding: 80px 40px;
+    border-radius: 12px;
+    border: 1px solid #e0e4ec; 
+    box-shadow: 0 10px 30px rgba(13, 27, 42, 0.05); 
+}
+
+.hero h1 {
+    font-size: 40px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: #0d1b2a; 
+}
+
+.hero p {
+    font-size: 18px;
+    color: #778da9; 
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.page-placeholder {
+    background-color: #ffffff;
+    padding: 60px 40px;
+    border-radius: 12px;
+    border: 2px dashed #778da9; 
+}
+
+.page-placeholder h2 {
+    font-size: 32px;
+    color: #0d1b2a;
+    margin-bottom: 15px;
+}
+
+.page-placeholder p {
+    color: #778da9;
+    font-size: 16px;
+}
+
+.schedule-container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid #e0e4ec;
+    text-align: left; 
+    box-shadow: 0 10px 30px rgba(13, 27, 42, 0.05);
+}
+
+.schedule-container h2 {
+    color: #0d1b2a;
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.schedule-subtitle {
+    color: #778da9;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.course-btn {
+    background-color: #ffffff;
+    color: #0d1b2a;
+    border: 2px solid #e0e4ec;
+    padding: 18px 28px;       
+    font-size: 16px;          
+    font-weight: 700;
+    border-radius: 40px;      
+    cursor: pointer;
+    text-align: center;
+    line-height: 1.4;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+}
+
+.course-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(13, 27, 42, 0.1);
+    background-color: #f8f9fa;
+}
+
+.course-btn[data-course="python"].active-course { background-color: #3776ab; color: #ffffff; border-color: #3776ab; }
+.course-btn[data-course="java"].active-course { background-color: #e41f23; color: #ffffff; border-color: #e41f23; }
+.course-btn[data-course="scratch"].active-course { background-color: #f5a623; color: #ffffff; border-color: #f5a623; }
+.course-btn[data-course="vrar"].active-course { background-color: #7209b7; color: #ffffff; border-color: #7209b7; }
+.course-btn[data-course="cyber"].active-course { background-color: #00b4d8; color: #ffffff; border-color: #00b4d8; }
+.course-btn[data-course="art"].active-course { background-color: #ff007f; color: #ffffff; border-color: #ff007f; }
+.course-btn[data-course="drones"].active-course { background-color: #4caf50; color: #ffffff; border-color: #4caf50; }
+
+.course-btn.active-course {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.table-container {
+    margin-top: 20px;
+    padding-top: 30px;
+    border-top: 2px solid #f5f7fa;
+}
+
+.table-container h3 {
+    font-size: 22px;
+    color: #0d1b2a;
+    margin-bottom: 20px;
+}
+
+.table-placeholder {
+    color: #778da9;
+    font-style: italic;
+    text-align: center;
+    padding: 40px 0;
+}
+
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background-color: #ffffff;
+}
+
+.schedule-table th, .schedule-table td {
+    padding: 14px 18px;
+    border: 1px solid #e0e4ec;
+    text-align: left;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.schedule-table th {
+    background-color: #1b263b; 
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.schedule-table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.schedule-table tr:hover {
+    background-color: #f0f2f5;
+}
