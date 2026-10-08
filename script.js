@@ -3,7 +3,7 @@ const pages = {
     home: `
         <div class="hero">
             <h1>Добро пожаловать в "IT-куб"!</h1>
-            <p>Центр цифрового образования — место, где дети создают будущее своими руками.</p>
+            <p>Центр цифрового образования - место, где дети создают будущее своими руками.</p>
             <div style="margin-top:35px; width:100%; display:flex; justify-content:center;">
                 <video autoplay loop muted playsinline width="100%" style="max-width:720px; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.15); border:1px solid #e0e4ec;">
                     <source src="media/promo.mp4" type="video/mp4">
@@ -14,7 +14,7 @@ const pages = {
     about: `
         <div class="page-placeholder">
             <h2>О центре</h2>
-            <p>Центр цифрового образования детей «IT-куб» — это современная площадка дополнительного образования, направленная на популяризацию информационных технологий и программирования.</p>
+            <p>Центр цифрового образования детей «IT-куб» - это современная площадка дополнительного образования, направленная на популяризацию информационных технологий и программирования.</p>
         </div>
     `,
     teachers: `<div class="schedule-container" style="text-align:center;"><h2>Наши педагоги</h2><p class="schedule-subtitle">Опытные специалисты и практикующие IT-инженеры</p><div id="teachers-list-grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(450px,1fr)); gap:25px; text-align:left; margin-top:30px;"></div></div>`,
